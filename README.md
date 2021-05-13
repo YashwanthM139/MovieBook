@@ -24,4 +24,4 @@ movie/bookMovie
 
 **Flows Considered:**
 Movie -> Theatre -> time slot -> booking
-Movie -> rate movie
+Movie -> rate movi
