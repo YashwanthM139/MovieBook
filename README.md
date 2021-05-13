@@ -1,17 +1,19 @@
-Please find the code part of the deliverables in rest_api.zip.
+**Introduction:**
+A small demonstration to build restful application in c++ to perform CRUD operations on movie booking database.
+A sample database is created. And restful api's are provided to perform ticket booking.
+Built application is present in app directory.
+Application is built with meson build system on a linux x86_64 [ubuntu 18.04] system.
+Required libraries are placed in libs folder.
+C++17 is required for compilation as a dependency for some of the features and libraries.
 
-Required libraries are placed in libs folder 
-and also mentioned in meson.build.
-Application(crud) is present in builddir directory.
-Routes of rest api to perform db operations is present movieEndPoint.h (Controller).
-I’ve tested it currently using postman.
-
-Have used following libraries:
-SOCI- for db connection management 
-Pistache - for rest end points
+**Following libraries are used:** 
+SOCI- for db connection management
+mysqlclient - for interaction with mysql database
+Pistache - for rest end points creation 
 Jsoncpp - for Json based operations
 
-Rest endpoints:
+
+**Rest endpoints:**
 user/register
 user/login
 movie/listMovies
@@ -20,6 +22,6 @@ movie/listTheatre
 movie/listTimeSlot
 movie/bookMovie
 
-Flows Considered:
+**Flows Considered:**
 Movie -> Theatre -> time slot -> booking
-Movie -> rateMovie
+Movie -> rate movie
