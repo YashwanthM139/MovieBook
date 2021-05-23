@@ -1,5 +1,5 @@
-#ifndef ENTITY_HEADER
-#define ENTITY_HEADER
+#ifndef MOVIE_BOOK_ENTITY_H
+#define MOVIE_BOOK_ENTITY_H
 
 #include <iostream>
 #include <string>
@@ -32,17 +32,17 @@ namespace movie_book {
       int theatreId;
       std::string name;
       std::string screen;
-      std::string capacity;
+      int capacity;
       std::string location;
    }TheatreDetails;
 
    typedef struct TimeSlotDetails{
-      int movie_time_id;
-      int movie_id;
+      int movieTimeId;
+      int movieId;
       int theatreId;
       std::string timing;
-      int available_seat;
-      int booked_seat;
+      int availableSeat;
+      int bookedSeat;
       std::string date;
    }TimeSlotDetails;
 

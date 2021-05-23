@@ -1,5 +1,5 @@
-#ifndef DATABASE_POOL_H
-#define DATABASE_POOL_H
+#ifndef MOVIE_BOOK_DATABASE_POOL_H
+#define MOVIE_BOOK_DATABASE_POOL_H
 
 #include <string>
 #include <iostream>
