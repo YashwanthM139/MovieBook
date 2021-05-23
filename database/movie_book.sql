@@ -29,7 +29,7 @@ CREATE TABLE `booking` (
   `date` varchar(20) NOT NULL,
   `username` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,11 +44,11 @@ CREATE TABLE `movie` (
   `name` varchar(256) NOT NULL,
   `language` varchar(50) NOT NULL,
   `durationInMinutes` int(11) NOT NULL,
-  `rating` float DEFAULT NULL,
+  `rating` float DEFAULT '0',
   `numberofRatings` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`,`language`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,8 +67,9 @@ CREATE TABLE `movie_time` (
   `available_seat` int(11) NOT NULL DEFAULT '0',
   `booked_seat` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `movie_id` (`movie_id`,`theatre_id`,`timing`,`date`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `movie_id` (`theatre_id`,`timing`,`date`),
+  KEY `movieIdIndex` (`movie_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +87,7 @@ CREATE TABLE `theatre` (
   `location` varchar(256) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`,`screen`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +108,20 @@ CREATE TABLE `user` (
   UNIQUE KEY `phone` (`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user_rating`
+--
+
+DROP TABLE IF EXISTS `user_rating`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_rating` (
+  `username` varchar(100) NOT NULL,
+  `movie_id` int(11) NOT NULL,
+  PRIMARY KEY (`username`,`movie_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -117,4 +132,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-13 14:47:25
+-- Dump completed on 2021-05-24  3:27:25
